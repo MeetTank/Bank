@@ -32,6 +32,11 @@ namespace BankApplication
         {
 
             int transaction_id = random.Next();
+            if(amount <0)
+            {
+                Console.WriteLine("   Please add correct amount");
+                return;
+            }
             if (amount % 100 != 0)
             {
                 Console.WriteLine("   Amount should be in multiple(s) of 100");
@@ -67,6 +72,11 @@ namespace BankApplication
         public void Debit(int amount)
         {
             int transaction_id = random.Next();
+            if (amount < 0)
+            {
+                Console.WriteLine("   Please add correct amount");
+                return;
+            }
             if (amount % 100 != 0)
             {
                 Console.WriteLine("   Amount should be in multiple(s) of 100");
