@@ -48,7 +48,7 @@ namespace BankApplication
                 if (account.Account_No.ToString().Equals(accNo))
                     return account;
             }
-            throw new Exception("   Account not found please add correct detials.");
+            throw new Exception("   Account not found please add correct details.");
 
         }
 

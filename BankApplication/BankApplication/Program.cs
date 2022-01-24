@@ -86,9 +86,15 @@ namespace BankApplication
         private static void choice1()
         {
             Console.Write("\tEnter Account Number: ");
-            string acc_no = Console.ReadLine();
+            string? acc_no = Console.ReadLine();
             Console.Write("\tEnter Amount: ");
-            int val = Convert.ToInt32(Console.ReadLine());
+            var val = 0;
+            var input = Console.ReadLine();
+            while (!(int.TryParse(input, out val)))
+            {
+                Console.Write("\tEnter Amount Again: ");
+                input = Console.ReadLine();
+            }
             try
             {
                 bankOperation.SearchAccount(acc_no).Credit(val);
@@ -102,9 +108,16 @@ namespace BankApplication
         private static void choice2()
         {
             Console.Write("\tEnter Account Number: ");
-            string acc_no = Console.ReadLine();
+            string? acc_no = Console.ReadLine();
             Console.Write("\tEnter Amount: ");
-            int val = Convert.ToInt32(Console.ReadLine());
+
+            var val = 0;
+            var input = Console.ReadLine();
+            while(!(int.TryParse(input, out val)))
+            {
+                Console.Write("\tEnter Amount Again: ");
+                input = Console.ReadLine();
+            }
             try
             {
                 bankOperation.SearchAccount(acc_no).Debit(val);
@@ -119,7 +132,7 @@ namespace BankApplication
         private static void choice3()
         {
             Console.Write("\tEnter Account Number: ");
-            string c_id = Console.ReadLine();
+            string? c_id = Console.ReadLine();
             try
             {
                 bankOperation.SearchAccount(c_id).showBalance();
@@ -134,7 +147,7 @@ namespace BankApplication
         private static void choice4()
         {
             Console.Write("\tEnter customer-Id: ");
-            string c_id = Console.ReadLine();
+            string? c_id = Console.ReadLine();
             try
             {
                 bankOperation.DisplayBalance(c_id);
@@ -148,7 +161,7 @@ namespace BankApplication
         private static void choice5()
         {
             Console.Write("\tEnter A/C no : ");
-            var acc_no = Console.ReadLine();
+            string? acc_no = Console.ReadLine();
             try
             {
                 bankOperation.SearchAccount(acc_no).BankStatement();
